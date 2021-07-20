@@ -31,14 +31,25 @@ _
 6667@IRC@Internet Relay Chat server
 .TE
 
-.NH
+.NH 1
 Setup a firewall with iptables
 .PP
+There are different types of firewalls that don't work the same, some may also
+use up more CPU than others.
 Quick reminder on firewall types : 
-.BL 
-Packet-Filtering Firewall :
+.SH 2
+Packet-Filter :
 .PP
 Monitors the network traffic by filtering the incoming packets according to the
-information they carry. It is implement by default on all modern Linux kernels
-.BL
-
+information they carry. It checks for the destination and source port and IP
+address. It is implement by default on all modern Linux kernels
+.SH 2
+Connection tracking 
+.PP
+Exemple of the stateful firewall : 
+This firewall keeps track of the state of each connection in a table such as
+LISTEN, ESTABLISHED and CLOSING. This table keeps track of TCP and UDP transfer
+protocols
+.NH 2
+iptables
+.PP There are three tables in iptables 
