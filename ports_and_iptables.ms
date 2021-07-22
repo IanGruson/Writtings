@@ -2,7 +2,7 @@
 .TL
 Cheatsheet on ports and iptables
 .AU
-Ian Gruson
+Meedos
 
 .NH
 Standard ports
@@ -52,4 +52,29 @@ LISTEN, ESTABLISHED and CLOSING. This table keeps track of TCP and UDP transfer
 protocols
 .NH 2
 iptables
+.NH 3
+Tables
 .PP There are three tables in iptables 
+.BL
+table NAT (Network Address Translation) : used for port and IP translation
+.BL
+table 
+.B "table Filter" :
+it is the default table when none are specified. This table
+contains all the filtering rules. There are 3 channels : FOWARD for all packets
+traversing the firewall, INPUT for the entering packets and OUTPUT for the
+packets exiting. 
+.BL
+table MANGLE (Not very used apparently)
+.NH 3
+Main commands
+.LP 
+-A --append 
+.EX
+iptables
+.LP 
+-D --delete 
+.EX
+iptables -D INPUT
+
+
