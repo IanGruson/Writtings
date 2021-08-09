@@ -68,13 +68,32 @@ packets exiting.
 table MANGLE (Not very used apparently)
 .NH 3
 Main commands
-.LP 
+.LP
 -A --append 
-.EX
-iptables
-.LP 
--D --delete 
-.EX
-iptables -D INPUT
+.EX 
+.eg "iptables -A INPUT ..."
 
+-D --delete : Deletes a chain. Chains can be deleted either by specified by
+specifying the chain number or a rule to delete.
+.EX 
+.eg "iptables -D INPUT --dport 80 -j DROP"
+.eg "iptables -D INPUT 1"
 
+-R --replace : replace a specified chain.
+.EX 
+.eg "iptables -R INPUT 1 -s 192.168.0.1 -j DROP
+
+-I --insert : insert rules at a given position in the chain
+.EX
+.eg "iptables -I 
+
+-L --list : lists rules
+.EX
+.eg "iptables -L # prints all the rules of the FILTER CHAIN
+.eg "iptables -L INPUT  # prints all the INPUT rules of the FILTER CHAIN
+
+.UL Note : the "!" character can be used the do the opposite for certain commands.
+It is possible to make rules for every source IP "except" for a certain IP using
+the "!" character.
+.NH 3
+Matching commands

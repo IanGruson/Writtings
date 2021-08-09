@@ -7,8 +7,23 @@
 
 .de EX
 .br
-.BI Exemple : 
 .gcolor red
-\\$1
+.BI Exemple : 
+.br
+.de eg end
+.	gcolor red
+	\\\\$1
+.	br
+.	gcolor
+.end
 .gcolor
+..
+
+.de cm
+.br
+.PP
+.gcolor blue
+$ \\$1
+.gcolor
+.br
 ..
